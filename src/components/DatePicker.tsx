@@ -38,12 +38,12 @@ const DatePicker: FC<DatePickerProps> = ({ label, mode, selected, onChange }) =>
       {label && <Label htmlFor={inpId}>{label}</Label>}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant="outline" id={inpId} className="w-full justify-between">
+          <Button aria-label="select date" variant="outline" id={inpId} className="w-full justify-between">
             <span>{displayValue}</span>
             <CalendarIcon />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+        <PopoverContent data-testid="popover-content" className="w-auto overflow-hidden p-0" align="start">
           {mode === 'single' ? (
             <Calendar
               mode="single"

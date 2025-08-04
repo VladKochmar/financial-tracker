@@ -41,7 +41,9 @@ const TransactionDialog: FC = () => {
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
-        <Button size="lg">Add Transaction</Button>
+        <Button data-testid="transaction-dialog-button" size="lg">
+          Add Transaction
+        </Button>
       </DialogTrigger>
       <DialogContent aria-describedby={undefined}>
         <DialogHeader>
@@ -114,9 +116,13 @@ const TransactionDialog: FC = () => {
         </div>
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button data-testid="cancel-button" variant="outline">
+              Cancel
+            </Button>
           </DialogClose>
-          <Button onClick={handleClick}>Save changes</Button>
+          <Button data-testid="save-button" onClick={handleClick}>
+            Save changes
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

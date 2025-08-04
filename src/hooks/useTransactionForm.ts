@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Transaction, TransactionType } from '../types/Transaction';
 
-interface TransactionForm {
+export interface TransactionForm {
   type: TransactionType | '';
   category: string;
   amount: string;

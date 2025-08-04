@@ -39,24 +39,28 @@ const TransactionEditor: FC<TransactionEditorProps> = ({ transaction }) => {
     <>
       <TableCell>
         <Select value={form.type} onValueChange={nextType => update('type', nextType)}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger aria-label="Select transaction type" className="w-full">
             <SelectValue placeholder="Select transaction type" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="income">Income</SelectItem>
-            <SelectItem value="expense">Expense</SelectItem>
+            <SelectItem aria-label="select income" value="income">
+              Income
+            </SelectItem>
+            <SelectItem aria-label="select expense" value="expense">
+              Expense
+            </SelectItem>
           </SelectContent>
         </Select>
         {errors.type && <p className="text-sm text-destructive pt-2">{errors.type}</p>}
       </TableCell>
       <TableCell>
         <Select value={form.category} onValueChange={nextCategory => update('category', nextCategory)}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger aria-label="Select transaction category" className="w-full">
             <SelectValue placeholder="Select transaction category" />
           </SelectTrigger>
           <SelectContent>
             {categories.map(c => (
-              <SelectItem key={c.id} value={c.id} className="capitalize">
+              <SelectItem key={c.id} value={c.id} aria-label={`select ${c.title}`} className="capitalize">
                 <span className="h-4 w-4 rounded-full" style={{ backgroundColor: c.color }}></span>
                 {c.title}
               </SelectItem>
@@ -71,6 +75,7 @@ const TransactionEditor: FC<TransactionEditorProps> = ({ transaction }) => {
           value={form.amount}
           onChange={e => update('amount', e.target.value)}
           placeholder="Enter amount in $"
+          aria-label="Amount in dollars"
           className="w-[120px]"
         />
         {errors.amount && <p className="text-sm text-destructive pt-2">{errors.amount}</p>}
@@ -86,10 +91,18 @@ const TransactionEditor: FC<TransactionEditorProps> = ({ transaction }) => {
         {errors.date && <p className="text-sm text-destructive pt-2">{errors.date}</p>}
       </TableCell>
       <TableCell>
-        <Input value={form.note} onChange={e => update('note', e.target.value)} placeholder="Type your note" className="w-3xs" />
+        <Input
+          value={form.note}
+          onChange={e => update('note', e.target.value)}
+          placeholder="Type your note"
+          aria-label="Note input field"
+          className="w-3xs"
+        />
       </TableCell>
       <TableCell>
-        <Button onClick={handleUpdate}>Save</Button>
+        <Button aria-label="Save transaction" onClick={handleUpdate}>
+          Save
+        </Button>
       </TableCell>
     </>
   );

@@ -33,26 +33,34 @@ const Filters: FC<FiltersProps> = ({ className }) => {
                 defaultValue="all"
                 value={filters.transactionType}
                 onValueChange={(value: TransactionType | 'all') => setFilters({ transactionType: value })}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger aria-label="Select transaction type" className="w-full">
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All</SelectItem>
-                  <SelectItem value="income">Income</SelectItem>
-                  <SelectItem value="expense">Expense</SelectItem>
+                  <SelectItem aria-label="select all" value="all">
+                    All
+                  </SelectItem>
+                  <SelectItem aria-label="select income" value="income">
+                    Income
+                  </SelectItem>
+                  <SelectItem aria-label="select expense" value="expense">
+                    Expense
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="flex-1/2 p-2">
               <Label>Category</Label>
               <Select defaultValue="all" value={filters.categoryId} onValueChange={value => setFilters({ categoryId: value })}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger aria-label="Select transaction category" className="w-full">
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem aria-label="select all" value="all">
+                    All
+                  </SelectItem>
                   {categories.map(c => (
-                    <SelectItem key={c.id} value={c.id}>
+                    <SelectItem aria-label={`select ${c.title}`} key={c.id} value={c.id}>
                       <span className="h-4 w-4 rounded-full" style={{ backgroundColor: c.color }}></span>
                       {c.title}
                     </SelectItem>

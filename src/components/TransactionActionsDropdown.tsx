@@ -12,16 +12,16 @@ const TransactionActionsDropdown: FC<TransactionActionsDropdownProps> = ({ onDel
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0">
+        <Button variant="ghost" aria-label="Open dropdown menu" className="h-8 w-8 p-0">
           <MoreHorizontal />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={onEditClick} className="flex justify-between gap-x-2">
+        <DropdownMenuItem aria-label="Open edit transaction menu" onClick={onEditClick} className="flex justify-between gap-x-2">
           Edit
           <FilePenLine />
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={onDelete} className="flex justify-between gap-x-2">
+        <DropdownMenuItem aria-label="Delete transaction" onClick={onDelete} className="flex justify-between gap-x-2">
           Delete
           <Trash2 />
         </DropdownMenuItem>

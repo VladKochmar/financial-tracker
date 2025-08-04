@@ -60,7 +60,11 @@ const TransactionsList: FC<TransactionsListProps> = ({ className }) => {
                     {editId !== t.id ? (
                       <>
                         <TableCell>
-                          {t.type === 'income' ? <BanknoteArrowUp className="text-primary" /> : <BanknoteArrowDown className="text-destructive" />}{' '}
+                          {t.type === 'income' ? (
+                            <BanknoteArrowUp aria-label="Banknote arrow up" className="text-primary" />
+                          ) : (
+                            <BanknoteArrowDown aria-label="Banknote arrow down" className="text-destructive" />
+                          )}{' '}
                         </TableCell>
                         <TableCell className="capitalize">{getCategoryById(t.categoryId)?.title}</TableCell>
                         <TableCell>
@@ -78,6 +82,7 @@ const TransactionsList: FC<TransactionsListProps> = ({ className }) => {
                     )}
                     <TableCell>
                       <TransactionActionsDropdown
+                        data-testid="actions-dropdown"
                         onDelete={() => removeTransaction(t.id)}
                         onEditClick={() => setEditId(prev => (prev !== t.id ? t.id : undefined))}
                       />

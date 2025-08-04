@@ -52,7 +52,7 @@ const CategoryCreator: FC<CategoryCreatorProps> = ({ style }) => {
           Create new category
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full max-w-80">
+      <PopoverContent data-testid="popover-content" className="w-full max-w-80">
         <div className="grid gap-y-4">
           <h3 className="font-bold">New Category</h3>
           <div>
@@ -62,6 +62,7 @@ const CategoryCreator: FC<CategoryCreatorProps> = ({ style }) => {
               onChange={e => setTitle(e.target.value)}
               placeholder="Type category title"
               id="category-title"
+              data-testid="category-title"
               className={`${errors.title ? 'border-destructive' : null}`}
             />
             {errors.title && <p className="text-sm text-destructive pt-2">{errors.title}</p>}
