@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# Financial Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a finance tracking app built with React (TypeScript), Tailwind CSS, Shadcn UI, and Zustand. It allows you to record income and expenses by different categories (food, entertainment, salary, etc.), as well as create your own categories with color choices (via @uiw/react-color-wheel).
 
-Currently, two official plugins are available:
+## 🔗 Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Open demo](https://financial-tracker-omega.vercel.app/)
 
-## Expanding the ESLint configuration
+## 🧰 Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Use the package manager [npm](https://www.npmjs.com/) to install Todo App.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/VladKochmar/financial-tracker.git
+cd financial-tracker
+
+npm install
+npm run dev        # start in development mode
+npm run build      # production build
+npm run preview    # preview build
+npm run test       # test launch
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Technologies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS 4](https://tailwindcss.com/)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction)
+- [Vite](https://vite.dev/)
+- [Vitest](https://vitest.dev/)
+- [ESLint](https://eslint.org/)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🧩 Functionality
+
+- Adding transactions (income/expenses)
+- Filter by category, date
+- Expense chart by category
+- Income/expense statistics
+- Storage in localStorage (via Zustand)
+- Adaptive design
+
+## ✨ Implementation features
+
+- Zustand + localStorage: Transaction status is stored in Zustand with automatic saving to localStorage;
+- Grid layout: the main interface is built using CSS Grid;
+- Modularity: components are isolated — easy to scale;
+- Recharts: visualization of expenses in the form of a pie chart.
+
+## 👤 Author
+
+[Vladyslav Kochmar](https://github.com/VladKochmar)
+
+## License
+
+This project is licensed under [MIT](https://choosealicense.com/licenses/mit/). Free to use and modify.
